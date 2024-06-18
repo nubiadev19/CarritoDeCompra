@@ -5,6 +5,10 @@
 package vista;
 
 import java.awt.Color;
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -21,8 +25,34 @@ public class Registro extends javax.swing.JFrame {
         this.setSize(840, 660);
         this.setLocationRelativeTo(null);
         this.setBackground(new Color(197,22,244));
+        
+        SetImageLabel(JDog1,"src/Imagenes/huellita de perro 3.png");
+        SetImageLabel(JDog2,"src/Imagenes/huellita de perro 4.png");
+        SetImageLabel(JDog3,"src/Imagenes/huellita de perro 3.png");
+        SetImageLabel(JDog4,"src/Imagenes/huellita de perro 4.png");
+        
+        SetImageLabel(JCat1,"src/Imagenes/huellita de gato 3.png");
+        SetImageLabel(JCat2,"src/Imagenes/huellita de gato 4.png");
+        SetImageLabel(JCat3,"src/Imagenes/huellita de gato 3.png");
+        SetImageLabel(JCat4,"src/Imagenes/huellita de gato 4.png");
+        
+        SetImageLabel(Jpunto1,"src/Imagenes/punto 3.png");
+        SetImageLabel(Jpunto2,"src/Imagenes/punto 3.png");
+        SetImageLabel(Jpunto3,"src/Imagenes/punto 4.png");
+        SetImageLabel(Jpunto4,"src/Imagenes/punto 4.png");
+        SetImageLabel(Jpunto5,"src/Imagenes/punto 4.png");
+        SetImageLabel(Jpunto6,"src/Imagenes/punto 4.png");
     }
 
+    private void SetImageLabel(JLabel labelName, String root){
+        ImageIcon image = new ImageIcon(root);
+        Icon icono = new ImageIcon(
+                                   image.getImage().getScaledInstance(labelName.getWidth(),labelName.getHeight(), Image.SCALE_DEFAULT));
+        labelName.setIcon(icono);
+        this.repaint();
+
+}
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
