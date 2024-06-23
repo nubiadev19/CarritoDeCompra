@@ -14,12 +14,15 @@ import util.UsuarioAutenticado;
 import javax.swing.ImageIcon;
 import javax.swing.Icon;
 import javax.swing.JLabel;
+
 /**
  *
  * @author LENOVO 14ALC6
  */
 public class Login extends javax.swing.JFrame {
-      ListaUsuario lista=new ListaUsuario();
+
+    ListaUsuario lista = new ListaUsuario();
+
     /**
      * Creates new form Login
      */
@@ -28,34 +31,34 @@ public class Login extends javax.swing.JFrame {
         this.setTitle("Inciar sesion");
         this.setSize(800, 600);
         this.setLocationRelativeTo(null);
-        this.setBackground(new Color(197,22,244));
-        
-        Usuario  administrador = new Usuario(1, "Nubia", "nubia@gmail.com", "123456", "Administrador", "Activo");
-        Usuario  cliente = new Usuario(1, "Cliente", "cliente@gmail.com", "123456", "Cliente", "Activo");
+        this.setBackground(new Color(197, 22, 244));
+
+        Usuario administrador = new Usuario(1, "Nubia", "nubia@gmail.com", "123456", "Administrador", "Activo");
+        Usuario cliente = new Usuario(1, "Cliente", "cliente@gmail.com", "123456", "Cliente", "Activo");
         lista.setAddInicio(cliente);
         lista.setAddInicio(administrador);
-        
-        SetImageLabel(JDog1,"src/Imagenes/huellita perro 1.png");
-        SetImageLabel(JDog2,"src/Imagenes/huellita perro 2.png");
-        
-        SetImageLabel(JCat1,"src/Imagenes/huellita gato 1.png");
-        SetImageLabel(JCat2,"src/Imagenes/huellita gato 2.png");
-        
-        SetImageLabel(Jpunto1,"src/Imagenes/punto 2.png");
-        SetImageLabel(Jpunto2,"src/Imagenes/punto 4.png");
-        SetImageLabel(Jpunto1,"src/Imagenes/punto 2.png");
-        SetImageLabel(Jpunto2,"src/Imagenes/punto.png");
+
+        SetImageLabel(JDog1, "src/Imagenes/huellita perro 1.png");
+        SetImageLabel(JDog2, "src/Imagenes/huellita perro 2.png");
+
+        SetImageLabel(JCat1, "src/Imagenes/huellita gato 1.png");
+        SetImageLabel(JCat2, "src/Imagenes/huellita gato 2.png");
+
+        SetImageLabel(Jpunto1, "src/Imagenes/punto 2.png");
+        SetImageLabel(Jpunto2, "src/Imagenes/punto 4.png");
+        SetImageLabel(Jpunto1, "src/Imagenes/punto 2.png");
+        SetImageLabel(Jpunto2, "src/Imagenes/punto.png");
     }
 
-    private void SetImageLabel(JLabel labelName, String root){
+    private void SetImageLabel(JLabel labelName, String root) {
         ImageIcon image = new ImageIcon(root);
         Icon icono = new ImageIcon(
-                                   image.getImage().getScaledInstance(labelName.getWidth(),labelName.getHeight(), Image.SCALE_DEFAULT));
+                image.getImage().getScaledInstance(labelName.getWidth(), labelName.getHeight(), Image.SCALE_DEFAULT));
         labelName.setIcon(icono);
         this.repaint();
 
-}
-    
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,9 +76,9 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnAcceder = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        btnRegistro = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        BotonReegistrar = new javax.swing.JButton();
         JDog2 = new javax.swing.JLabel();
         JDog1 = new javax.swing.JLabel();
         JCat1 = new javax.swing.JLabel();
@@ -89,11 +92,11 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(197, 222, 244));
-        setPreferredSize(new java.awt.Dimension(1240, 500));
         setSize(new java.awt.Dimension(1240, 500));
 
         jPanel1.setBackground(new java.awt.Color(197, 222, 244));
         jPanel1.setMaximumSize(new java.awt.Dimension(800, 600));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -127,20 +130,19 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabel4.setText("No tienes una cuenta?,");
 
-        btnRegistro.setBackground(new java.awt.Color(255, 172, 41));
-        btnRegistro.setForeground(new java.awt.Color(68, 16, 16));
-        btnRegistro.setText("Crear Cuenta");
-        btnRegistro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistroActionPerformed(evt);
-            }
-        });
-
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setText("Email");
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel3.setText("Contraseña");
+
+        BotonReegistrar.setBackground(new java.awt.Color(255, 172, 41));
+        BotonReegistrar.setText("Crear Cuenta");
+        BotonReegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonReegistrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -162,13 +164,13 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addComponent(btnAcceder))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRegistro))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(btnAcceder)))
+                        .addComponent(BotonReegistrar)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -186,167 +188,108 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAcceder)
-                .addGap(33, 33, 33)
+                .addGap(37, 37, 37)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(btnRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(43, Short.MAX_VALUE))
+                    .addComponent(BotonReegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
-        JDog2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/huellita perro 2.png"))); // NOI18N
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 150, -1, -1));
+        jPanel1.add(JDog2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 191, 170, 138));
 
         JDog1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/huellita perro 1.png"))); // NOI18N
+        jPanel1.add(JDog1, new org.netbeans.lib.awtextra.AbsoluteConstraints(568, 35, -1, 150));
 
         JCat1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/huellita gato 1.png"))); // NOI18N
+        jPanel1.add(JCat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 347, -1, -1));
 
         Jpunto3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/punto.png"))); // NOI18N
+        jPanel1.add(Jpunto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 459, -1, -1));
 
         Jpunto2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/punto 4.png"))); // NOI18N
+        jPanel1.add(Jpunto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 218, 34, 38));
 
         Jpunto4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/punto 2.png"))); // NOI18N
+        jPanel1.add(Jpunto4, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 527, -1, -1));
 
         Jpunto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/punto 2.png"))); // NOI18N
+        jPanel1.add(Jpunto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(724, 145, -1, -1));
 
         JCat2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/huellita gato 2.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Jpunto3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JCat2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(JCat1)
-                        .addGap(32, 32, 32)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addComponent(Jpunto2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JDog2))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JDog1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Jpunto1))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(Jpunto4)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addComponent(Jpunto1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(JDog1)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(Jpunto2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JDog2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(150, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(JCat1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Jpunto3)
-                                .addGap(94, 94, 94))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(JCat2)
-                                .addContainerGap())))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addComponent(Jpunto4)
-                        .addGap(36, 36, 36))))
-        );
+        jPanel1.add(JCat2, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 491, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+    private void BotonReegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonReegistrarActionPerformed
+       
+        Registro registro=new Registro();
+        registro.setVisible(true);
+        
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailActionPerformed
-
-    private void txtClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClaveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtClaveActionPerformed
+    }//GEN-LAST:event_BotonReegistrarActionPerformed
 
     private void btnAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccederActionPerformed
         // TODO add your handling code here:
         //validar el acceso de usuario
         String email = txtEmail.getText();
         String clave = txtClave.getText();
-        
-        if(email.length()>0 && clave.length()>0){
+
+        if (email.length() > 0 && clave.length() > 0) {
             Usuario user = new Usuario(email, clave);
-            
-            Nodo usuario =  lista.getBuscarPorEmail(email);
-            if(usuario==null){
-                  JOptionPane.showMessageDialog(this, "Email o clave invalido","Error", JOptionPane.ERROR_MESSAGE);
-            }else{
-                 UsuarioAutenticado.email = usuario.getUsuario().getEmail();
-                 UsuarioAutenticado.identificacion = usuario.getUsuario().getIdentificacion();
-                 UsuarioAutenticado.rol = usuario.getUsuario().getRol();
-                 UsuarioAutenticado.nombreUsuario = usuario.getUsuario().getNombreUsuario();
-                 
+
+            Nodo usuario = lista.getBuscarPorEmail(email);
+            if (usuario == null) {
+                JOptionPane.showMessageDialog(this, "Email o clave invalido", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                UsuarioAutenticado.email = usuario.getUsuario().getEmail();
+                UsuarioAutenticado.identificacion = usuario.getUsuario().getIdentificacion();
+                UsuarioAutenticado.rol = usuario.getUsuario().getRol();
+                UsuarioAutenticado.nombreUsuario = usuario.getUsuario().getNombreUsuario();
+
                 //crear una instancia de la vista de acuerdo al rol
-                if(usuario.getUsuario().getRol().equals("Administrador")){
+                if (usuario.getUsuario().getRol().equals("Administrador")) {
                     //llamar a la vista administrador
                     JOptionPane.showMessageDialog(this, "Has iniciado sesion como administrador");
-                   
-                }else{
+
+                } else {
                     //lamar a la vista cliente
-                    
+
                     JOptionPane.showMessageDialog(this, "Has iniciado sesion como Cliente");
                 }
             }
-          
-            
-        }else{
+
+        } else {
             JOptionPane.showMessageDialog(this, "Los campos email y clave son obligatorios", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        
     }//GEN-LAST:event_btnAccederActionPerformed
 
-    private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
+    private void txtClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClaveActionPerformed
         // TODO add your handling code here:
-        Registro frmRegistro = new Registro();
-        this.setVisible(false);
-        frmRegistro.setVisible(true);
-        
-    }//GEN-LAST:event_btnRegistroActionPerformed
+    }//GEN-LAST:event_txtClaveActionPerformed
+
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -384,6 +327,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonReegistrar;
     private javax.swing.JLabel JCat1;
     private javax.swing.JLabel JCat2;
     private javax.swing.JLabel JDog1;
@@ -393,7 +337,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel Jpunto3;
     private javax.swing.JLabel Jpunto4;
     private javax.swing.JButton btnAcceder;
-    private javax.swing.JButton btnRegistro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

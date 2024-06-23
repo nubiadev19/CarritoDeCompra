@@ -6,9 +6,19 @@ package vista;
 
 import java.awt.Color;
 import java.awt.Image;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import listaSimple.ListaUsuario;
+import modelo.Archivos;
+import modelo.Usuario;
 
 /**
  *
@@ -16,43 +26,41 @@ import javax.swing.JLabel;
  */
 public class Registro extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Login
-     */
+    ListaUsuario lista = new ListaUsuario();
+    //Login frmLogin = new Login();
+
     public Registro() {
         initComponents();
-        this.setTitle("Inciar sesion");
+        this.setTitle("Registro");
         this.setSize(840, 660);
         this.setLocationRelativeTo(null);
-        this.setBackground(new Color(197,22,244));
-        
-        SetImageLabel(JDog1,"src/Imagenes/huellita de perro 3.png");
-        SetImageLabel(JDog2,"src/Imagenes/huellita de perro 4.png");
-        SetImageLabel(JDog3,"src/Imagenes/huellita de perro 3.png");
-        SetImageLabel(JDog4,"src/Imagenes/huellita de perro 4.png");
-        
-        SetImageLabel(JCat1,"src/Imagenes/huellita de gato 3.png");
-        SetImageLabel(JCat2,"src/Imagenes/huellita de gato 4.png");
-        SetImageLabel(JCat3,"src/Imagenes/huellita de gato 3.png");
-        SetImageLabel(JCat4,"src/Imagenes/huellita de gato 4.png");
-        
-        SetImageLabel(Jpunto1,"src/Imagenes/punto 3.png");
-        SetImageLabel(Jpunto2,"src/Imagenes/punto 3.png");
-        SetImageLabel(Jpunto3,"src/Imagenes/punto 4.png");
-        SetImageLabel(Jpunto4,"src/Imagenes/punto 4.png");
-        SetImageLabel(Jpunto5,"src/Imagenes/punto 4.png");
-        SetImageLabel(Jpunto6,"src/Imagenes/punto 4.png");
+        this.setBackground(new Color(197, 22, 244));
+        this.setVisible(true);
+
+        /*Usuario administrador = new Usuario(1, "Nubia", "nubia@gmail.com", "123456", "Administrador", "Activo");
+        Usuario cliente = new Usuario(1, "Cliente", "cliente@gmail.com", "123456", "Cliente", "Activo");
+        lista.setAddInicio(cliente);
+        lista.setAddInicio(administrador);*/
+        // Establecer imágenes en los JLabels
+        SetImageLabel(Dog1, "src/Imagenes/huellita perro 1.png");
+        SetImageLabel(Dog2, "src/Imagenes/huellita perro 2.png");
+        SetImageLabel(Cat3, "src/Imagenes/huellita de gato 2.png");
+        SetImageLabel(Cat3, "src/Imagenes/huellita gato 4.png");
+        SetImageLabel(punto4, "src/Imagenes/punto 2.png");
+        SetImageLabel(punto3, "src/Imagenes/punto 4.png");
+        SetImageLabel(punto1, "src/Imagenes/punto 2.png");
+        SetImageLabel(punto2, "src/Imagenes/punto 4.png");
     }
 
-    private void SetImageLabel(JLabel labelName, String root){
+    private void SetImageLabel(JLabel labelName, String root) {
         ImageIcon image = new ImageIcon(root);
         Icon icono = new ImageIcon(
-                                   image.getImage().getScaledInstance(labelName.getWidth(),labelName.getHeight(), Image.SCALE_DEFAULT));
+                image.getImage().getScaledInstance(labelName.getWidth(), labelName.getHeight(), Image.SCALE_DEFAULT));
         labelName.setIcon(icono);
         this.repaint();
 
-}
-    
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,22 +87,14 @@ public class Registro extends javax.swing.JFrame {
         btnRegistro = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
-        JDog3 = new javax.swing.JLabel();
-        JDog4 = new javax.swing.JLabel();
-        JDog1 = new javax.swing.JLabel();
-        JDog2 = new javax.swing.JLabel();
-        JCat2 = new javax.swing.JLabel();
-        JCat3 = new javax.swing.JLabel();
-        JCat4 = new javax.swing.JLabel();
-        JCat1 = new javax.swing.JLabel();
-        Jpunto6 = new javax.swing.JLabel();
-        Jpunto2 = new javax.swing.JLabel();
-        Jpunto1 = new javax.swing.JLabel();
-        Jpunto5 = new javax.swing.JLabel();
-        Jpunto4 = new javax.swing.JLabel();
-        Jpunto3 = new javax.swing.JLabel();
-
-        jLabel21.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\punto 4.png")); // NOI18N
+        Cat4 = new javax.swing.JLabel();
+        Dog2 = new javax.swing.JLabel();
+        punto2 = new javax.swing.JLabel();
+        Dog1 = new javax.swing.JLabel();
+        punto3 = new javax.swing.JLabel();
+        punto1 = new javax.swing.JLabel();
+        Cat3 = new javax.swing.JLabel();
+        punto4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(197, 222, 244));
@@ -102,6 +102,7 @@ public class Registro extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(197, 222, 244));
         jPanel1.setMaximumSize(new java.awt.Dimension(1000, 1000));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -181,10 +182,6 @@ public class Registro extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -197,6 +194,7 @@ public class Registro extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
@@ -204,14 +202,15 @@ public class Registro extends javax.swing.JFrame {
                             .addComponent(jLabel6))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnLogin)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(btnRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(btnRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnLogin)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -248,148 +247,37 @@ public class Registro extends javax.swing.JFrame {
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
-        JDog3.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\huellita de perro 3.png")); // NOI18N
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, -1, -1));
 
-        JDog4.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\huellita de perro 4.png")); // NOI18N
+        Cat4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/huellita de gato 4.png"))); // NOI18N
+        jPanel1.add(Cat4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, 80, 100));
 
-        JDog1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/huellita de perro 3.png"))); // NOI18N
+        Dog2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/huellita perro 2.png"))); // NOI18N
+        jPanel1.add(Dog2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, -1, -1));
 
-        JDog2.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\huellita de perro 4.png")); // NOI18N
+        punto2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/punto 4.png"))); // NOI18N
+        jPanel1.add(punto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, -1, -1));
 
-        JCat2.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\huellita de gato 3.png")); // NOI18N
+        Dog1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/huellita perro 1.png"))); // NOI18N
+        jPanel1.add(Dog1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 140, -1, -1));
 
-        JCat3.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\huellita de gato 4.png")); // NOI18N
+        punto3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/punto 4.png"))); // NOI18N
+        jPanel1.add(punto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 190, -1, -1));
 
-        JCat4.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\huellita de gato 3.png")); // NOI18N
+        punto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/punto 2.png"))); // NOI18N
+        jPanel1.add(punto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, -1, -1));
 
-        JCat1.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\huellita de gato 4.png")); // NOI18N
+        Cat3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/huellita gato 2.png"))); // NOI18N
+        jPanel1.add(Cat3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, 100));
 
-        Jpunto6.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\punto 4.png")); // NOI18N
-
-        Jpunto2.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\punto 3.png")); // NOI18N
-
-        Jpunto1.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\punto 3.png")); // NOI18N
-
-        Jpunto5.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\punto 4.png")); // NOI18N
-
-        Jpunto4.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\punto 4.png")); // NOI18N
-
-        Jpunto3.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\punto 4.png")); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JCat2)
-                            .addComponent(JCat4))
-                        .addGap(90, 90, 90))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(JCat3)
-                                .addGap(18, 18, 18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(Jpunto5)
-                                .addGap(18, 18, 18)
-                                .addComponent(JCat1)
-                                .addGap(4, 4, 4))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(Jpunto6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))))
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(Jpunto3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JDog4))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JDog1)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(Jpunto1)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JDog2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(JDog3)
-                        .addGap(31, 31, 31)
-                        .addComponent(Jpunto2)))
-                .addContainerGap(25, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(156, 156, 156)
-                    .addComponent(Jpunto4)
-                    .addContainerGap(650, Short.MAX_VALUE)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(JDog1)
-                        .addGap(18, 18, 18)
-                        .addComponent(Jpunto1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(JDog2)
-                        .addGap(130, 130, 130)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(JDog3)
-                        .addGap(16, 16, 16))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Jpunto2)
-                        .addGap(29, 29, 29)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(Jpunto3))
-                    .addComponent(JDog4))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Jpunto6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JCat1)
-                        .addGap(20, 20, 20))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Jpunto5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(JCat2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(JCat3)
-                .addGap(18, 18, 18)
-                .addComponent(JCat4)
-                .addGap(29, 29, 29))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(443, Short.MAX_VALUE)
-                    .addComponent(Jpunto4)
-                    .addGap(69, 69, 69)))
-        );
+        punto4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/punto 2.png"))); // NOI18N
+        jPanel1.add(punto4, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 70, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -429,54 +317,88 @@ public class Registro extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+   // public static void main(String args[]) {
+        
+       // java.awt.EventQueue.invokeLater(new Runnable() {
+         //   public void run() {
+              //  new Registro().setVisible(true);
+           // }
+        //});
+    //}
+    public static void main(String[] args) {
+        File archivo;// para manipular archivos
+        FileWriter escribir; //para escribir en el archivo
+        PrintWriter linea;//para escribir en el archivo
+        String identificacion="";
+        String nombre="";
+        String email="";
+        String clave="";
+        String rol="";
+        String estado="";
+        archivo =new File("Usuario.txt");// preparando el archivo
+        if(!archivo.exists()){
+            try {
+                archivo.createNewFile();
+               /* identificacion=JOptionPane.showInputDialog(null, "ingresa el nombre"+
+                        "solicitando datos: "+3);
+                nombre=JOptionPane.showInputDialog(null, "ingresa el nombre"+
+                        "solicitando datos: "+3);
+                email=JOptionPane.showInputDialog(null, "ingresa el nombre"+
+                        "solicitando datos: "+3); 
+                 clave=JOptionPane.showInputDialog(null, "ingresa el nombre"+
+                        "solicitando datos: "+3);
+                  rol=JOptionPane.showInputDialog(null, "ingresa el nombre"+
+                        "solicitando datos: "+3);
+                   estado=JOptionPane.showInputDialog(null, "ingresa el nombre"+
+                        "solicitando datos: "+3);
+                   */escribir=new FileWriter(archivo,true);
+                   linea=new PrintWriter(escribir);
+                   //escribimos en el archivo
+                   linea.print(nombre);
+                   linea.print(email);
+                   linea.print(clave);
+                   linea.print(rol);
+                   linea.print(estado);
+                   linea.close();
+                   escribir.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Archivos.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }else{
+             try {
+                
+                nombre=JOptionPane.showInputDialog(null, "ingresa el nombre"+
+                        "solicitando datos: "+3);
+                email=JOptionPane.showInputDialog(null, "ingresa el nombre"+
+                        "solicitando datos: "+3); 
+                 clave=JOptionPane.showInputDialog(null, "ingresa el nombre"+
+                        "solicitando datos: "+3);
+                  rol=JOptionPane.showInputDialog(null, "ingresa el nombre"+
+                        "solicitando datos: "+3);
+                   estado=JOptionPane.showInputDialog(null, "ingresa el nombre"+
+                        "solicitando datos: "+3);
+                   escribir=new FileWriter(archivo,true);
+                   linea=new PrintWriter(escribir);
+                   //escribimos en el archivo
+                   linea.print(nombre);
+                   linea.print(email);
+                   linea.print(clave);
+                   linea.print(rol);
+                   linea.print(estado);
+                   linea.close();
+                   escribir.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Archivos.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Registro().setVisible(true);
-            }
-        });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel JCat1;
-    private javax.swing.JLabel JCat2;
-    private javax.swing.JLabel JCat3;
-    private javax.swing.JLabel JCat4;
-    private javax.swing.JLabel JDog1;
-    private javax.swing.JLabel JDog2;
-    private javax.swing.JLabel JDog3;
-    private javax.swing.JLabel JDog4;
-    private javax.swing.JLabel Jpunto1;
-    private javax.swing.JLabel Jpunto2;
-    private javax.swing.JLabel Jpunto3;
-    private javax.swing.JLabel Jpunto4;
-    private javax.swing.JLabel Jpunto5;
-    private javax.swing.JLabel Jpunto6;
+    private javax.swing.JLabel Cat3;
+    private javax.swing.JLabel Cat4;
+    private javax.swing.JLabel Dog1;
+    private javax.swing.JLabel Dog2;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegistro;
     private javax.swing.JLabel jLabel1;
@@ -489,6 +411,10 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel punto1;
+    private javax.swing.JLabel punto2;
+    private javax.swing.JLabel punto3;
+    private javax.swing.JLabel punto4;
     private javax.swing.JPasswordField txtClave;
     private javax.swing.JPasswordField txtClave2;
     private javax.swing.JTextField txtEmail;
