@@ -5,6 +5,10 @@
 package vista;
 
 import java.awt.Color;
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -21,8 +25,34 @@ public class Registro extends javax.swing.JFrame {
         this.setSize(840, 660);
         this.setLocationRelativeTo(null);
         this.setBackground(new Color(197,22,244));
+        
+        SetImageLabel(JDog1,"src/Imagenes/huellita de perro 3.png");
+        SetImageLabel(JDog2,"src/Imagenes/huellita de perro 4.png");
+        SetImageLabel(JDog3,"src/Imagenes/huellita de perro 3.png");
+        SetImageLabel(JDog4,"src/Imagenes/huellita de perro 4.png");
+        
+        SetImageLabel(JCat1,"src/Imagenes/huellita de gato 3.png");
+        SetImageLabel(JCat2,"src/Imagenes/huellita de gato 4.png");
+        SetImageLabel(JCat3,"src/Imagenes/huellita de gato 3.png");
+        SetImageLabel(JCat4,"src/Imagenes/huellita de gato 4.png");
+        
+        SetImageLabel(Jpunto1,"src/Imagenes/punto 3.png");
+        SetImageLabel(Jpunto2,"src/Imagenes/punto 3.png");
+        SetImageLabel(Jpunto3,"src/Imagenes/punto 4.png");
+        SetImageLabel(Jpunto4,"src/Imagenes/punto 4.png");
+        SetImageLabel(Jpunto5,"src/Imagenes/punto 4.png");
+        SetImageLabel(Jpunto6,"src/Imagenes/punto 4.png");
     }
 
+    private void SetImageLabel(JLabel labelName, String root){
+        ImageIcon image = new ImageIcon(root);
+        Icon icono = new ImageIcon(
+                                   image.getImage().getScaledInstance(labelName.getWidth(),labelName.getHeight(), Image.SCALE_DEFAULT));
+        labelName.setIcon(icono);
+        this.repaint();
+
+}
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,8 +93,6 @@ public class Registro extends javax.swing.JFrame {
         Jpunto5 = new javax.swing.JLabel();
         Jpunto4 = new javax.swing.JLabel();
         Jpunto3 = new javax.swing.JLabel();
-
-        jLabel21.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\punto 4.png")); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(197, 222, 244));
@@ -151,10 +179,6 @@ public class Registro extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -167,21 +191,23 @@ public class Registro extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 36, Short.MAX_VALUE))))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnLogin)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(btnRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnLogin))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(btnRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -218,33 +244,62 @@ public class Registro extends javax.swing.JFrame {
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
-        JDog3.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\huellita de perro 3.png")); // NOI18N
+        JDog3.setForeground(new java.awt.Color(197, 222, 244));
+        JDog3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/huellita de perro 4.png"))); // NOI18N
+        JDog3.setText("JDog3");
 
-        JDog4.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\huellita de perro 4.png")); // NOI18N
+        JDog4.setForeground(new java.awt.Color(197, 222, 244));
+        JDog4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/huellita de perro 3.png"))); // NOI18N
+        JDog4.setText("JDog4");
 
+        JDog1.setBackground(new java.awt.Color(197, 222, 244));
+        JDog1.setForeground(new java.awt.Color(197, 222, 244));
         JDog1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/huellita de perro 3.png"))); // NOI18N
+        JDog1.setText("JDog1");
 
-        JDog2.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\huellita de perro 4.png")); // NOI18N
+        JDog2.setForeground(new java.awt.Color(197, 222, 244));
+        JDog2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/huellita de perro 3.png"))); // NOI18N
+        JDog2.setText("JDog2");
 
-        JCat2.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\huellita de gato 3.png")); // NOI18N
+        JCat2.setForeground(new java.awt.Color(197, 222, 244));
+        JCat2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/huellita de gato 3.png"))); // NOI18N
+        JCat2.setText("JCat2");
 
-        JCat3.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\huellita de gato 4.png")); // NOI18N
+        JCat3.setForeground(new java.awt.Color(197, 222, 244));
+        JCat3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/huellita de gato 4.png"))); // NOI18N
+        JCat3.setText("JCat3");
 
-        JCat4.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\huellita de gato 3.png")); // NOI18N
+        JCat4.setForeground(new java.awt.Color(197, 222, 244));
+        JCat4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/huellita de gato 3.png"))); // NOI18N
+        JCat4.setText("JCat4");
 
-        JCat1.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\huellita de gato 4.png")); // NOI18N
+        JCat1.setForeground(new java.awt.Color(197, 222, 244));
+        JCat1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/huellita de gato 4.png"))); // NOI18N
+        JCat1.setText("JCat1");
 
-        Jpunto6.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\punto 4.png")); // NOI18N
+        Jpunto6.setForeground(new java.awt.Color(197, 222, 244));
+        Jpunto6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/punto 4.png"))); // NOI18N
+        Jpunto6.setText("Jpunto6");
 
-        Jpunto2.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\punto 3.png")); // NOI18N
+        Jpunto2.setForeground(new java.awt.Color(197, 222, 244));
+        Jpunto2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/punto 3.png"))); // NOI18N
+        Jpunto2.setText("Jpunto2");
 
-        Jpunto1.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\punto 3.png")); // NOI18N
+        Jpunto1.setForeground(new java.awt.Color(197, 222, 244));
+        Jpunto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/punto 3.png"))); // NOI18N
+        Jpunto1.setText("Jpunto1");
 
-        Jpunto5.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\punto 4.png")); // NOI18N
+        Jpunto5.setForeground(new java.awt.Color(197, 222, 244));
+        Jpunto5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/punto 4.png"))); // NOI18N
+        Jpunto5.setText("Jpunto5");
 
-        Jpunto4.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\punto 4.png")); // NOI18N
+        Jpunto4.setForeground(new java.awt.Color(197, 222, 244));
+        Jpunto4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/punto 4.png"))); // NOI18N
+        Jpunto4.setText("Jpunto4");
 
-        Jpunto3.setIcon(new javax.swing.ImageIcon("C:\\Users\\pc\\Desktop\\IMAGENES\\punto 4.png")); // NOI18N
+        Jpunto3.setForeground(new java.awt.Color(197, 222, 244));
+        Jpunto3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/punto 4.png"))); // NOI18N
+        Jpunto3.setText("Jpunto3");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -252,114 +307,114 @@ public class Registro extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JCat2)
-                            .addComponent(JCat4))
-                        .addGap(90, 90, 90))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(JCat3)
-                                .addGap(18, 18, 18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(Jpunto5)
-                                .addGap(18, 18, 18)
-                                .addComponent(JCat1)
-                                .addGap(4, 4, 4))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(Jpunto6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(13, 13, 13)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(Jpunto5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(25, 25, 25))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(JCat4, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(JCat2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(JCat1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Jpunto4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGap(70, 70, 70)
+                            .addComponent(Jpunto6)))
+                    .addComponent(JCat3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(51, 51, 51)
-                        .addComponent(Jpunto3)
+                        .addComponent(Jpunto3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JDog4))
+                        .addComponent(JDog4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JDog1)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(JDog3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(36, 36, 36)
+                                    .addComponent(Jpunto1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(JDog1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(Jpunto1)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JDog2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(JDog3)
-                        .addGap(31, 31, 31)
-                        .addComponent(Jpunto2)))
-                .addContainerGap(25, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(156, 156, 156)
-                    .addComponent(Jpunto4)
-                    .addContainerGap(650, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(Jpunto2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(JDog2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 19, Short.MAX_VALUE)))))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
                         .addComponent(JDog1)
                         .addGap(18, 18, 18)
-                        .addComponent(Jpunto1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(JDog2)
-                        .addGap(130, 130, 130)))
+                        .addComponent(Jpunto1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(JDog2)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(JDog3)
-                        .addGap(16, 16, 16))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JDog3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
                         .addComponent(Jpunto2)
-                        .addGap(29, 29, 29)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(Jpunto3))
-                    .addComponent(JDog4))
-                .addContainerGap())
+                        .addGap(42, 42, 42)
+                        .addComponent(Jpunto3)
+                        .addGap(94, 94, 94))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JDog4)
+                        .addGap(31, 31, 31))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(Jpunto6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JCat1)
-                        .addGap(20, 20, 20))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(71, 71, 71))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JCat1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(JCat3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Jpunto4)
+                                .addGap(110, 110, 110))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
                         .addComponent(Jpunto5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(JCat2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(JCat3)
-                .addGap(18, 18, 18)
-                .addComponent(JCat4)
-                .addGap(29, 29, 29))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(443, Short.MAX_VALUE)
-                    .addComponent(Jpunto4)
-                    .addGap(69, 69, 69)))
+                        .addGap(46, 46, 46)
+                        .addComponent(JCat2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JCat4)
+                        .addGap(43, 43, 43))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
