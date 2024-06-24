@@ -13,12 +13,17 @@ import modelo.Usuario;
 import util.UsuarioAutenticado;
 import javax.swing.ImageIcon;
 import javax.swing.Icon;
+import javax.swing.JLabel;
+import modelo.Archivos;
+import vistaAdmin.PaginaPrincipal;
 /**
  *
  * @author LENOVO 14ALC6
  */
 public class Login extends javax.swing.JFrame {
       ListaUsuario lista=new ListaUsuario();
+    private Archivos archivos;
+      
     /**
      * Creates new form Login
      */
@@ -29,48 +34,31 @@ public class Login extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setBackground(new Color(197,22,244));
         
-        Usuario  administrador = new Usuario(1, "Nubia", "nubia@gmail.com", "123456", "Administrador", "Activo");
-        Usuario  cliente = new Usuario(1, "Cliente", "cliente@gmail.com", "123456", "Cliente", "Activo");
+        Usuario  administrador = new Usuario(1, "Nubia", "nubia@gmail.com", "123456", "Administrador");
+        Usuario  cliente = new Usuario(1, "Cliente", "cliente@gmail.com", "123456", "Cliente");
         lista.setAddInicio(cliente);
         lista.setAddInicio(administrador);
         
-        ImageIcon Dog1 = new ImageIcon("src/Imagenes/huellita perro 1.png");
-        Icon icono1 = new ImageIcon(Dog1.getImage().getScaledInstance(JDog1.getWidth(),JDog1.getHeight(), Image.SCALE_DEFAULT));
-        JDog1.setIcon(icono1);
-
-        ImageIcon Dog2 = new ImageIcon("src/Imagenes/huellita perro 2.png");
-        Icon icono2 = new ImageIcon(Dog2.getImage().getScaledInstance(JDog2.getWidth(),JDog1.getHeight(), Image.SCALE_DEFAULT));
-        JDog2.setIcon(icono2);
-
-        ImageIcon punto1 = new ImageIcon("src/Imagenes/punto 2.png");
-        Icon icono3 = new ImageIcon(punto1.getImage().getScaledInstance(Jpunto1.getWidth(),Jpunto1.getHeight(), Image.SCALE_DEFAULT));
-        Jpunto1.setIcon(icono3);
-
-        ImageIcon punto2 = new ImageIcon("src/Imagenes/punto 4.png");
-        Icon icono4 = new ImageIcon(punto2.getImage().getScaledInstance(Jpunto1.getWidth(),Jpunto2.getHeight(), Image.SCALE_DEFAULT));
-        Jpunto2.setIcon(icono4);
+        SetImageLabel(JDog1,"src/Imagenes/huellita perro 1.png");
+        SetImageLabel(JDog2,"src/Imagenes/huellita perro 2.png");
         
-        ImageIcon Cat1 = new ImageIcon("src/Imagenes/huellita gato 1.png");
-        Icon icono5 = new ImageIcon(Cat1.getImage().getScaledInstance(JCat1.getWidth(),JCat1.getHeight(), Image.SCALE_DEFAULT));
-        JCat1.setIcon(icono5);
-
-        ImageIcon Cat2 = new ImageIcon("src/Imagenes/huellita gato 2.png");
-        Icon icono6 = new ImageIcon(Cat2.getImage().getScaledInstance(JCat2.getWidth(),JCat2.getHeight(), Image.SCALE_DEFAULT));
-        JCat2.setIcon(icono6);
-
-        ImageIcon punto3 = new ImageIcon("src/Imagenes/punto 2.png");
-        Icon icono7 = new ImageIcon(punto3.getImage().getScaledInstance(Jpunto3.getWidth(),Jpunto3.getHeight(), Image.SCALE_DEFAULT));
-        Jpunto3.setIcon(icono7);
-
-        ImageIcon punto4 = new ImageIcon("src/Imagenes/punto.png");
-        Icon icono8 = new ImageIcon(punto4.getImage().getScaledInstance(Jpunto1.getWidth(),Jpunto4.getHeight(), Image.SCALE_DEFAULT));
-        Jpunto4.setIcon(icono8);
+        SetImageLabel(JCat1,"src/Imagenes/huellita gato 1.png");
+        SetImageLabel(JCat2,"src/Imagenes/huellita gato 2.png");
         
-        this.repaint();
-        
+        SetImageLabel(Jpunto1,"src/Imagenes/punto 2.png");
+        SetImageLabel(Jpunto2,"src/Imagenes/punto 4.png");
+        SetImageLabel(Jpunto1,"src/Imagenes/punto 2.png");
+        SetImageLabel(Jpunto2,"src/Imagenes/punto.png");
     }
 
-   
+    private void SetImageLabel(JLabel labelName, String root){
+        ImageIcon image = new ImageIcon(root);
+        Icon icono = new ImageIcon(
+                                   image.getImage().getScaledInstance(labelName.getWidth(),labelName.getHeight(), Image.SCALE_DEFAULT));
+        labelName.setIcon(icono);
+        this.repaint();
+
+}
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -341,7 +329,10 @@ public class Login extends javax.swing.JFrame {
                 if(usuario.getUsuario().getRol().equals("Administrador")){
                     //llamar a la vista administrador
                     JOptionPane.showMessageDialog(this, "Has iniciado sesion como administrador");
-                   
+                    
+                   PaginaPrincipal frmPaginaPrincipal = new PaginaPrincipal();
+                   this.setVisible(false);
+                   frmPaginaPrincipal.setVisible(true);
                 }else{
                     //lamar a la vista cliente
                     
@@ -358,7 +349,7 @@ public class Login extends javax.swing.JFrame {
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
         // TODO add your handling code here:
-        Registro frmRegistro = new Registro();
+        Registro frmRegistro = new Registro(archivos);
         this.setVisible(false);
         frmRegistro.setVisible(true);
         

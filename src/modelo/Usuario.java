@@ -9,6 +9,11 @@ package modelo;
  * @author LENOVO 14ALC6
  */
 public class Usuario {
+
+    public static Usuario fromFileString(String linea) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     private int identificacion;
     private String nombreUsuario;
     private String email;
@@ -16,7 +21,7 @@ public class Usuario {
     private String rol;
     private String estado;
 
-    public Usuario(int identificacion, String nombreUsuario, String email, String clave, String rol, String estado) {
+    public Usuario(int identificacion, String nombreUsuario, String email, String clave, String rol) {
         this.identificacion = identificacion;
         this.nombreUsuario = nombreUsuario;
         this.email = email;
@@ -84,6 +89,10 @@ public class Usuario {
     @Override
     public String toString() {
         return   "identificacion=" + identificacion + ", nombreUsuario=" + nombreUsuario + ", email=" + email + ", clave=" + clave + ", rol=" + rol + ", estado=" + estado;
+    }
+
+    public boolean toFileString() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     

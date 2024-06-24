@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package listaSimple;
-
+import java.io.*;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
 
@@ -31,6 +31,16 @@ public class ListaUsuario {
             }
             return null;
         }
+    }
+    public Usuario buscarPorEmailYClave(String email, String clave) {
+        Nodo actual = cabecera;
+        while (actual != null) {
+            if (actual.usuario.getEmail().equals(email) && actual.usuario.getClave().equals(clave)) {
+                return actual.usuario;
+            }
+            actual = actual.siguiente;
+        }
+        return null;
     }
      public void setAddInicio(Usuario usuario){
         //Creamos el nodo que se desea registrar
@@ -68,5 +78,34 @@ public class ListaUsuario {
             return null;
         }
     }
-    
+      
+public void guardarEnArchivo(File archivo) {
+        try (PrintWriter pw = new PrintWriter(new FileWriter(archivo))) {
+            Nodo actual = cabecera;
+            while (actual != null) {
+                if (!actual.usuario.getRol().equals("Admin")) {
+                    pw.println(actual.usuario.toFileString());
+                }
+                actual = actual.siguiente;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void cargarDesdeArchivo(File archivo) {
+        if (archivo.exists()) {
+            try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+                String linea;
+                while ((linea = br.readLine()) != null) {
+                    Usuario usuario = Usuario.fromFileString(linea);
+                    getCrearNodo(usuario);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
+    
+
