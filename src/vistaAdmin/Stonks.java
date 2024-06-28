@@ -29,6 +29,7 @@ int x,y;
         
         SetImageLabel(JLogo,"src/Imagenes/Logo sin fondo 2.png");
          SetImageLabel(JCamino,"src/Imagenes/Camino Patitas.png");
+         SetImageLabel(JCorazon,"src/Imagenes/Corazones.png");
     }
      
     private void SetImageLabel(JLabel labelName, String root){
@@ -85,6 +86,7 @@ int x,y;
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         JCamino = new javax.swing.JLabel();
+        JCorazon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -408,7 +410,7 @@ int x,y;
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -425,6 +427,7 @@ int x,y;
 
         jLabel5.setText("Total:");
 
+        jButton1.setBackground(new java.awt.Color(131, 169, 226));
         jButton1.setText("Recoger Dinero");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -462,6 +465,8 @@ int x,y;
 
         JCamino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Camino Patitas.png"))); // NOI18N
 
+        JCorazon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Corazones.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -473,9 +478,11 @@ int x,y;
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JCorazon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(JCamino, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -486,7 +493,8 @@ int x,y;
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 279, Short.MAX_VALUE)))
+                        .addGap(27, 27, 27)
+                        .addComponent(JCorazon, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(JCamino, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -519,15 +527,15 @@ int x,y;
     }//GEN-LAST:event_jBPerfilActionPerformed
 
     private void jBHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBHistorialActionPerformed
-        Hist_Vend frmHist_Vend = new  Hist_Vend();
+        Histo_Vend frmHisto_Vend = new  Histo_Vend();
         this.setVisible(false);
-        frmHist_Vend.setVisible(true);
+        frmHisto_Vend.setVisible(true);
     }//GEN-LAST:event_jBHistorialActionPerformed
 
     private void jBVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVenderActionPerformed
-        Editar_Añadir frmEditar_Añadir = new Editar_Añadir();
+        Edit_Add frmEdit_Add = new Edit_Add();
         this.setVisible(false);
-        frmEditar_Añadir.setVisible(true);
+        frmEdit_Add.setVisible(true);
     }//GEN-LAST:event_jBVenderActionPerformed
 
     private void jBRevisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRevisarActionPerformed
@@ -541,9 +549,9 @@ int x,y;
     }//GEN-LAST:event_jBStonksActionPerformed
 
     private void jBVendidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVendidosActionPerformed
-        Hist_Vend frmHist_Vend = new  Hist_Vend();
+        Histo_Vend frmHisto_Vend = new  Histo_Vend();
         this.setVisible(false);
-        frmHist_Vend.setVisible(true);
+        frmHisto_Vend.setVisible(true);
     }//GEN-LAST:event_jBVendidosActionPerformed
 
     private void jBBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBusquedaActionPerformed
@@ -617,6 +625,7 @@ int x,y;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBAyuda;
     private javax.swing.JLabel JCamino;
+    private javax.swing.JLabel JCorazon;
     private javax.swing.JLabel JLogo;
     private javax.swing.JButton jBBusqueda;
     private javax.swing.JButton jBHistorial;

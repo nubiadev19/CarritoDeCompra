@@ -10,20 +10,19 @@ import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import listaSimple.ListaUsuario;
 
 /**
  *
  * @author pc
  */
 public class PaginaPrincipal extends javax.swing.JFrame {
-ListaUsuario lista=new ListaUsuario();
+
     /**
      * Creates new form PaginaPrincipal
      */
     public PaginaPrincipal() {
         initComponents();
-        this.setTitle("Pagina Principal");
+    this.setTitle("Pagina Principal");
         this.setSize(900, 800);
         this.setLocationRelativeTo(null);
         this.setBackground(new Color(255,210,51));
@@ -39,7 +38,7 @@ ListaUsuario lista=new ListaUsuario();
         this.repaint();
 
 }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -108,7 +107,6 @@ ListaUsuario lista=new ListaUsuario();
         jLabel20 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(197, 222, 244));
 
         jPanel1.setBackground(new java.awt.Color(255, 210, 51));
 
@@ -230,7 +228,7 @@ ListaUsuario lista=new ListaUsuario();
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jBVendidos)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jBStonks)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jBRevisar)))
@@ -427,7 +425,7 @@ ListaUsuario lista=new ListaUsuario();
                         .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jBOferta2)))
                 .addContainerGap())
         );
@@ -755,7 +753,7 @@ ListaUsuario lista=new ListaUsuario();
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -772,85 +770,85 @@ ListaUsuario lista=new ListaUsuario();
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jBOfertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBOfertaActionPerformed
+        Ofert_Recomd_Rec frmOfert_Recomd_Rec = new  Ofert_Recomd_Rec();
+        this.setVisible(false);
+        frmOfert_Recomd_Rec.setVisible(true);
+    }//GEN-LAST:event_jBOfertaActionPerformed
+
+    private void jBPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPerfilActionPerformed
+        Perfil frmPerfil = new Perfil();
+        this.setVisible(false);
+        frmPerfil.setVisible(true);
+    }//GEN-LAST:event_jBPerfilActionPerformed
+
+    private void jBHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBHistorialActionPerformed
+         Histo_Vend frmHisto_Vend = new  Histo_Vend();
+        this.setVisible(false);
+        frmHisto_Vend.setVisible(true);
+    }//GEN-LAST:event_jBHistorialActionPerformed
+
+    private void jBVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVenderActionPerformed
+        Edit_Add frmEdit_Add = new Edit_Add();
+        this.setVisible(false);
+        frmEdit_Add.setVisible(true);
+    }//GEN-LAST:event_jBVenderActionPerformed
+
+    private void jBRevisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRevisarActionPerformed
+        Revisar frmRevisar = new Revisar();
+        this.setVisible(false);
+        frmRevisar.setVisible(true);
+    }//GEN-LAST:event_jBRevisarActionPerformed
+
+    private void jBStonksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBStonksActionPerformed
+        Stonks frmStonks = new Stonks();
+        this.setVisible(false);
+        frmStonks.setVisible(true);
+    }//GEN-LAST:event_jBStonksActionPerformed
+
+    private void jBVendidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVendidosActionPerformed
+        Histo_Vend frmHisto_Vend = new  Histo_Vend();
+        this.setVisible(false);
+        frmHisto_Vend.setVisible(true);
+    }//GEN-LAST:event_jBVendidosActionPerformed
+
+    private void jBBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBusquedaActionPerformed
+        Busqueda frmBusqueda = new Busqueda();
+        this.setVisible(false);
+        frmBusqueda.setVisible(true);
+    }//GEN-LAST:event_jBBusquedaActionPerformed
+
     private void jCbCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbCategoriasActionPerformed
-        
+        // TODO add your handling code here:
     }//GEN-LAST:event_jCbCategoriasActionPerformed
 
+    private void JBAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAyudaActionPerformed
+        Ayuda frmAyuda = new Ayuda();
+        this.setVisible(false);
+        frmAyuda.setVisible(true);
+    }//GEN-LAST:event_JBAyudaActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     private void jBOferta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBOferta2ActionPerformed
-      Ofert_Recomd_Rec frmOfert_Recomd_Rec = new  Ofert_Recomd_Rec();
-    this.setVisible(false);
-    frmOfert_Recomd_Rec.setVisible(true);   
+        Ofert_Recomd_Rec frmOfert_Recomd_Rec = new  Ofert_Recomd_Rec();
+        this.setVisible(false);
+        frmOfert_Recomd_Rec.setVisible(true);
     }//GEN-LAST:event_jBOferta2ActionPerformed
 
     private void jBRecomendadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRecomendadosActionPerformed
-       Ofert_Recomd_Rec frmOfert_Recomd_Rec = new  Ofert_Recomd_Rec();
-    this.setVisible(false);
-    frmOfert_Recomd_Rec.setVisible(true);   
+        Ofert_Recomd_Rec frmOfert_Recomd_Rec = new  Ofert_Recomd_Rec();
+        this.setVisible(false);
+        frmOfert_Recomd_Rec.setVisible(true);
     }//GEN-LAST:event_jBRecomendadosActionPerformed
 
     private void jBRecientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRecientesActionPerformed
-     Ofert_Recomd_Rec frmOfert_Recomd_Rec = new  Ofert_Recomd_Rec();
-    this.setVisible(false);
-    frmOfert_Recomd_Rec.setVisible(true);   
+        Ofert_Recomd_Rec frmOfert_Recomd_Rec = new  Ofert_Recomd_Rec();
+        this.setVisible(false);
+        frmOfert_Recomd_Rec.setVisible(true);
     }//GEN-LAST:event_jBRecientesActionPerformed
-
-    private void jBBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBusquedaActionPerformed
-    Busqueda frmBusqueda = new Busqueda();
-    this.setVisible(false);
-    frmBusqueda.setVisible(true);    
-    }//GEN-LAST:event_jBBusquedaActionPerformed
-
-    private void jBOfertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBOfertaActionPerformed
-     Ofert_Recomd_Rec frmOfert_Recomd_Rec = new  Ofert_Recomd_Rec();
-    this.setVisible(false);
-    frmOfert_Recomd_Rec.setVisible(true);   
-    }//GEN-LAST:event_jBOfertaActionPerformed
-
-    private void jBHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBHistorialActionPerformed
-    Hist_Vend frmHist_Vend = new  Hist_Vend();
-    this.setVisible(false);
-    frmHist_Vend.setVisible(true);   
-    }//GEN-LAST:event_jBHistorialActionPerformed
-
-    private void jBVendidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVendidosActionPerformed
-     Hist_Vend frmHist_Vend = new  Hist_Vend();
-    this.setVisible(false);
-    frmHist_Vend.setVisible(true);  
-    }//GEN-LAST:event_jBVendidosActionPerformed
-
-    private void jBStonksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBStonksActionPerformed
-    Stonks frmStonks = new Stonks();
-    this.setVisible(false);
-    frmStonks.setVisible(true);  
-    }//GEN-LAST:event_jBStonksActionPerformed
-
-    private void jBRevisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRevisarActionPerformed
-     Revisar frmRevisar = new Revisar();
-    this.setVisible(false);
-    frmRevisar.setVisible(true); 
-    }//GEN-LAST:event_jBRevisarActionPerformed
-
-    private void JBAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAyudaActionPerformed
-     Ayuda frmAyuda = new Ayuda();
-    this.setVisible(false);
-    frmAyuda.setVisible(true);
-    }//GEN-LAST:event_JBAyudaActionPerformed
-
-    private void jBVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVenderActionPerformed
-    Editar_Añadir frmEditar_Añadir = new Editar_Añadir();
-    frmEditar_Añadir.setVisible(true);
-    dispose();
-    }//GEN-LAST:event_jBVenderActionPerformed
-
-    private void jBPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPerfilActionPerformed
-    Perfil frmPerfil = new Perfil();
-    this.setVisible(false);
-    frmPerfil.setVisible(true);
-    }//GEN-LAST:event_jBPerfilActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

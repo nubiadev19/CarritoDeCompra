@@ -37,7 +37,10 @@ public class Login extends javax.swing.JFrame {
         Usuario  administrador = new Usuario(1, "Nubia", "nubia@gmail.com", "123456", "Administrador", "Activo");
         Usuario  administrador2 = new Usuario(2, "Prueba", "1", "1", "Administrador", "Activo");
         Usuario  cliente = new Usuario(1, "Cliente", "cliente@gmail.com", "123456", "Cliente", "Activo");
+        Usuario  cliente2 = new Usuario(2, "Cliente", "2", "2", "Cliente", "Activo");
+        
         lista.setAddInicio(cliente);
+         lista.setAddInicio(cliente2);
         lista.setAddInicio(administrador);
         lista.setAddInicio(administrador2);
         

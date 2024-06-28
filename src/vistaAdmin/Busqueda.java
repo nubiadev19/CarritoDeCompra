@@ -9,16 +9,13 @@ import ListaDobles.ListaProductos;
 import ListaDobles.Nodo;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Event;
 import java.awt.Image;
 import java.util.ArrayList;
-import javafx.scene.layout.Border;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.TitledBorder;
 
 /**
  *
@@ -575,13 +572,15 @@ public class Busqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_jBPerfilActionPerformed
 
     private void jBHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBHistorialActionPerformed
-       // :3
+       Histo_Vend frmHisto_Vend = new  Histo_Vend();
+        this.setVisible(false);
+        frmHisto_Vend.setVisible(true);
     }//GEN-LAST:event_jBHistorialActionPerformed
 
     private void jBVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVenderActionPerformed
-        Editar_Añadir frmEditar_Añadir = new Editar_Añadir();
+        Edit_Add frmEdit_Add = new Edit_Add();
         this.setVisible(false);
-        frmEditar_Añadir.setVisible(true);
+        frmEdit_Add.setVisible(true);
     }//GEN-LAST:event_jBVenderActionPerformed
 
     private void jBRevisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRevisarActionPerformed
@@ -597,9 +596,9 @@ public class Busqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_jBStonksActionPerformed
 
     private void jBVendidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVendidosActionPerformed
-        Hist_Vend frmHist_Vend = new  Hist_Vend();
+        Histo_Vend frmHisto_Vend = new  Histo_Vend();
         this.setVisible(false);
-        frmHist_Vend.setVisible(true);
+        frmHisto_Vend.setVisible(true);
     }//GEN-LAST:event_jBVendidosActionPerformed
 
     private void jBBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBusquedaActionPerformed

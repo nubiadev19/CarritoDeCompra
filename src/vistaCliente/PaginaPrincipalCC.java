@@ -742,27 +742,27 @@ public class PaginaPrincipalCC extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBOfertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBOfertaActionPerformed
-        Ofert_Recomd_Rec frmOfert_Recomd_Rec = new  Ofert_Recomd_Rec();
+        Ofert_Recomd_RecCC frmOfert_Recomd_RecCC = new  Ofert_Recomd_RecCC();
         this.setVisible(false);
-        frmOfert_Recomd_Rec.setVisible(true);
+        frmOfert_Recomd_RecCC.setVisible(true);
     }//GEN-LAST:event_jBOfertaActionPerformed
 
     private void jBPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPerfilActionPerformed
-        Perfil frmPerfil = new Perfil();
+        PerfilCC frmPerfil = new PerfilCC();
         this.setVisible(false);
         frmPerfil.setVisible(true);
     }//GEN-LAST:event_jBPerfilActionPerformed
 
     private void jBHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBHistorialActionPerformed
-        Hist_Compr_Fav frmHist_Compr_Fav = new  Hist_Compr_Fav();
+        Histo_Comp_Fav frmHisto_Comp_Fav = new  Histo_Comp_Fav();
         this.setVisible(false);
-        frmHist_Compr_Fav.setVisible(true);
+        frmHisto_Comp_Fav.setVisible(true);
     }//GEN-LAST:event_jBHistorialActionPerformed
 
     private void jBFavoritosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFavoritosActionPerformed
-        Hist_Compr_Fav frmHist_Compr_Fav = new  Hist_Compr_Fav();
+        Histo_Comp_Fav frmHisto_Comp_Fav = new  Histo_Comp_Fav();
         this.setVisible(false);
-        frmHist_Compr_Fav.setVisible(true);
+        frmHisto_Comp_Fav.setVisible(true);
     }//GEN-LAST:event_jBFavoritosActionPerformed
 
     private void jBCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCarritoActionPerformed
@@ -772,15 +772,15 @@ public class PaginaPrincipalCC extends javax.swing.JFrame {
     }//GEN-LAST:event_jBCarritoActionPerformed
 
     private void jBCompradosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCompradosActionPerformed
-        Hist_Compr_Fav frmHist_Compr_Fav = new  Hist_Compr_Fav();
+        Histo_Comp_Fav frmHisto_Comp_Fav = new  Histo_Comp_Fav();
         this.setVisible(false);
-        frmHist_Compr_Fav.setVisible(true);
+        frmHisto_Comp_Fav.setVisible(true);
     }//GEN-LAST:event_jBCompradosActionPerformed
 
     private void jBBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBusquedaActionPerformed
-        Busqueda frmBusqueda = new Busqueda();
+        BusquedaCC frmBusquedaCC = new BusquedaCC();
         this.setVisible(false);
-        frmBusqueda.setVisible(true);
+        frmBusquedaCC.setVisible(true);
     }//GEN-LAST:event_jBBusquedaActionPerformed
 
     private void jCbCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbCategoriasActionPerformed
@@ -788,27 +788,27 @@ public class PaginaPrincipalCC extends javax.swing.JFrame {
     }//GEN-LAST:event_jCbCategoriasActionPerformed
 
     private void JBAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAyudaActionPerformed
-        Ayuda frmAyuda = new Ayuda();
+        AyudaCC frmAyudaCC = new AyudaCC();
         this.setVisible(false);
-        frmAyuda.setVisible(true);
+        frmAyudaCC.setVisible(true);
     }//GEN-LAST:event_JBAyudaActionPerformed
 
     private void jBOferta5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBOferta5ActionPerformed
-        Ofert_Recomd_Rec frmOfert_Recomd_Rec = new  Ofert_Recomd_Rec();
+        Ofert_Recomd_RecCC frmOfert_Recomd_RecCC = new  Ofert_Recomd_RecCC();
         this.setVisible(false);
-        frmOfert_Recomd_Rec.setVisible(true);
+        frmOfert_Recomd_RecCC.setVisible(true);
     }//GEN-LAST:event_jBOferta5ActionPerformed
 
     private void jBRecomendados1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRecomendados1ActionPerformed
-        Ofert_Recomd_Rec frmOfert_Recomd_Rec = new  Ofert_Recomd_Rec();
+        Ofert_Recomd_RecCC frmOfert_Recomd_RecCC = new  Ofert_Recomd_RecCC();
         this.setVisible(false);
-        frmOfert_Recomd_Rec.setVisible(true);
+        frmOfert_Recomd_RecCC.setVisible(true);
     }//GEN-LAST:event_jBRecomendados1ActionPerformed
 
     private void jBRecientes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRecientes1ActionPerformed
-        Ofert_Recomd_Rec frmOfert_Recomd_Rec = new  Ofert_Recomd_Rec();
+        Ofert_Recomd_RecCC frmOfert_Recomd_RecCC = new  Ofert_Recomd_RecCC();
         this.setVisible(false);
-        frmOfert_Recomd_Rec.setVisible(true);
+        frmOfert_Recomd_RecCC.setVisible(true);
     }//GEN-LAST:event_jBRecientes1ActionPerformed
 
     /**
