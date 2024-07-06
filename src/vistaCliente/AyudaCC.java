@@ -95,6 +95,11 @@ public class AyudaCC extends javax.swing.JFrame {
         jLabel8.setText("Pregunta");
 
         jTextField2.setBackground(new java.awt.Color(255, 243, 203));
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
 
         jTextField3.setBackground(new java.awt.Color(255, 243, 203));
 
@@ -255,6 +260,10 @@ public class AyudaCC extends javax.swing.JFrame {
         this.setVisible(false);
         frmPaginaPrincipalCC.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments

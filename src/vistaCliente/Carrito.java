@@ -89,7 +89,7 @@ public class Carrito extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(197, 222, 244));
 
         jPanel2.setBackground(new java.awt.Color(140, 189, 234));
-        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jBOferta.setBackground(new java.awt.Color(234, 243, 251));
         jBOferta.setText("Oferta");
@@ -166,7 +166,7 @@ public class Carrito extends javax.swing.JFrame {
         });
 
         JLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo sin fondo.png"))); // NOI18N
-        JLogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JLogo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         JLogo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 JLogoMouseDragged(evt);
@@ -266,9 +266,9 @@ public class Carrito extends javax.swing.JFrame {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(19, 19, 19)
                 .addComponent(jLabel2)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         jLabel3.setText("Cantidad De Productos Vendidos:");

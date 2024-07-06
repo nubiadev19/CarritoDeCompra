@@ -4,55 +4,68 @@
  */
 package vista;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.util.Arrays;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import listaSimple.ListaUsuario;
+import modelo.Usuario;
+import modelo.UsuarioFileManager;
 
 /**
  *
  * @author LENOVO 14ALC6
  */
 public class Registro extends javax.swing.JFrame {
-
+Usuario usuario;
+ListaUsuario listaUsuario;
     /**
      * Creates new form Login
      */
     public Registro() {
         initComponents();
-        this.setTitle("Inciar sesion");
-        this.setSize(840, 660);
-        this.setLocationRelativeTo(null);
-        this.setBackground(new Color(197,22,244));
-        
-        SetImageLabel(JDog1,"src/Imagenes/huellita de perro 3.png");
-        SetImageLabel(JDog2,"src/Imagenes/huellita de perro 4.png");
-        SetImageLabel(JDog3,"src/Imagenes/huellita de perro 3.png");
-        SetImageLabel(JDog4,"src/Imagenes/huellita de perro 4.png");
-        
-        SetImageLabel(JCat1,"src/Imagenes/huellita de gato 3.png");
-        SetImageLabel(JCat2,"src/Imagenes/huellita de gato 4.png");
-        SetImageLabel(JCat3,"src/Imagenes/huellita de gato 3.png");
-        SetImageLabel(JCat4,"src/Imagenes/huellita de gato 4.png");
-        
-        SetImageLabel(Jpunto1,"src/Imagenes/punto 3.png");
-        SetImageLabel(Jpunto2,"src/Imagenes/punto 3.png");
-        SetImageLabel(Jpunto3,"src/Imagenes/punto 4.png");
-        SetImageLabel(Jpunto4,"src/Imagenes/punto 4.png");
-        SetImageLabel(Jpunto5,"src/Imagenes/punto 4.png");
-        SetImageLabel(Jpunto6,"src/Imagenes/punto 4.png");
+usuario=new Usuario();
+listaUsuario=new ListaUsuario();
+
+        SetImageLabel(JDog1, "src/Imagenes/huellita de perro 3.png");
+        SetImageLabel(JDog2, "src/Imagenes/huellita de perro 4.png");
+        SetImageLabel(JDog3, "src/Imagenes/huellita de perro 3.png");
+        SetImageLabel(JDog4, "src/Imagenes/huellita de perro 4.png");
+
+      //  SetImageLabel(JCat1, "src/Imagenes/huellita de gato 3.png");
+        SetImageLabel(JCat2, "src/Imagenes/huellita de gato 4.png");
+        SetImageLabel(JCat3, "src/Imagenes/huellita de gato 3.png");
+        SetImageLabel(JCat4, "src/Imagenes/huellita de gato 4.png");
+
+        SetImageLabel(Jpunto1, "src/Imagenes/punto 3.png");
+        SetImageLabel(Jpunto2, "src/Imagenes/punto 3.png");
+        SetImageLabel(Jpunto3, "src/Imagenes/punto 4.png");
+        SetImageLabel(Jpunto4, "src/Imagenes/punto 4.png");
+        SetImageLabel(Jpunto5, "src/Imagenes/punto 4.png");
+        SetImageLabel(Jpunto6, "src/Imagenes/punto 4.png");
+        btnRegistro.addActionListener(this::btnRegistroActionPerformed);
+        btnLogin.addActionListener(this::btnLoginActionPerformed);
     }
 
-    private void SetImageLabel(JLabel labelName, String root){
+    private void SetImageLabel(JLabel labelName, String root) {
         ImageIcon image = new ImageIcon(root);
         Icon icono = new ImageIcon(
-                                   image.getImage().getScaledInstance(labelName.getWidth(),labelName.getHeight(), Image.SCALE_DEFAULT));
+                image.getImage().getScaledInstance(labelName.getWidth(), labelName.getHeight(), Image.SCALE_DEFAULT));
         labelName.setIcon(icono);
         this.repaint();
 
-}
-    
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -160,6 +173,11 @@ public class Registro extends javax.swing.JFrame {
         btnRegistro.setBackground(new java.awt.Color(255, 232, 163));
         btnRegistro.setForeground(new java.awt.Color(68, 16, 16));
         btnRegistro.setText("Crear Cuenta");
+        btnRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistroActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabel4.setText("Tienes una cuenta?,");
@@ -371,8 +389,7 @@ public class Registro extends javax.swing.JFrame {
                         .addComponent(JDog3))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(77, 77, 77)
-                        .addComponent(Jpunto2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(Jpunto2)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
@@ -451,10 +468,47 @@ public class Registro extends javax.swing.JFrame {
         frmLogin.setVisible(true);
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
+        String clave1 = new String(txtClave.getPassword());
+        String clave2 = new String(txtClave2.getPassword());
+
+        if (txtIdentificacion.getText().isEmpty() || txtNombreUsuario.getText().isEmpty()
+                || txtEmail.getText().isEmpty() || txtClave.getPassword().length == 0
+                || txtClave2.getPassword().length == 0) {
+JOptionPane.showMessageDialog(this, "Los campos son obligatorios", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+        }
+       
+        
+      if (clave1.equals(clave2)) {
+            JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        Usuario nuevoUsuario = new Usuario(
+                txtIdentificacion.getText(),
+                txtNombreUsuario.getText(),
+                txtEmail.getText(),
+                clave1,
+                "Cliente",
+                "Activo"
+        );
+
+        UsuarioFileManager.saveUser(nuevoUsuario);
+        JOptionPane.showMessageDialog(this, "Usuario registrado exitosamente");
+
+        Login frmLogin = new Login();
+        this.setVisible(false);
+        frmLogin.setVisible(true);
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistroActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(() -> new Registro().setVisible(true));
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -465,16 +519,24 @@ public class Registro extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registro.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registro.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registro.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registro.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -485,8 +547,6 @@ public class Registro extends javax.swing.JFrame {
                 new Registro().setVisible(true);
             }
         });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JCat1;
     private javax.swing.JLabel JCat2;
@@ -520,4 +580,6 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JTextField txtIdentificacion;
     private javax.swing.JTextField txtNombreUsuario;
     // End of variables declaration//GEN-END:variables
+
+}
 }

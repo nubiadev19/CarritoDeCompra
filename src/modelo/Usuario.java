@@ -9,14 +9,14 @@ package modelo;
  * @author LENOVO 14ALC6
  */
 public class Usuario {
-    private int identificacion;
+    private String identificacion;
     private String nombreUsuario;
     private String email;
     private String clave;
     private String rol;
     private String estado;
 
-    public Usuario(int identificacion, String nombreUsuario, String email, String clave, String rol, String estado) {
+    public Usuario(String identificacion, String nombreUsuario, String email, String clave, String rol, String estado) {
         this.identificacion = identificacion;
         this.nombreUsuario = nombreUsuario;
         this.email = email;
@@ -33,14 +33,15 @@ public class Usuario {
     public Usuario() {
     }
 
-    public int getIdentificacion() {
+    public String getIdentificacion() {
         return identificacion;
     }
 
-    public void setIdentificacion(int identificacion) {
+    public void setIdentificacion(String identificacion) {
         this.identificacion = identificacion;
     }
 
+    
     public String getNombreUsuario() {
         return nombreUsuario;
     }
