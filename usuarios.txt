@@ -1,0 +1,9 @@
+identificacion=112, nombreUsuario=mabel, email=mabel@gmail.com, clave=123456, rol=Cliente, estado=Activo
+identificacion=888, nombreUsuario=mara, email=mara.mara, clave=1234, rol=Cliente, estado=Activo
+identificacion=121, nombreUsuario=mara, email=mara.mara, clave=1234, rol=Cliente, estado=Activo
+identificacion=0, nombreUsuario=null, email=null, clave=null, rol=null, estado=null
+identificacion=12221, nombreUsuario=2, email=mara, clave=12, rol=Cliente, estado=Activo
+identificacion=0, nombreUsuario=null, email=null, clave=null, rol=null, estado=null
+identificacion=0, nombreUsuario=null, email=null, clave=null, rol=null, estado=null
+identificacion=111, nombreUsuario=2, email=mara, clave=12, rol=Cliente, estado=Activo
+identificacion=0, nombreUsuario=null, email=null, clave=null, rol=null, estado=null

@@ -9,6 +9,9 @@ import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import modelo.Usuario;
+import modelo.UsuarioFileManager;
 
 /**
  *
@@ -160,6 +163,11 @@ public class Registro extends javax.swing.JFrame {
         btnRegistro.setBackground(new java.awt.Color(255, 232, 163));
         btnRegistro.setForeground(new java.awt.Color(68, 16, 16));
         btnRegistro.setText("Crear Cuenta");
+        btnRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistroActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jLabel4.setText("Tienes una cuenta?,");
@@ -371,8 +379,7 @@ public class Registro extends javax.swing.JFrame {
                         .addComponent(JDog3))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(77, 77, 77)
-                        .addComponent(Jpunto2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(Jpunto2)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
@@ -450,6 +457,43 @@ public class Registro extends javax.swing.JFrame {
         this.setVisible(false);
         frmLogin.setVisible(true);
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
+String clave1 = new String(txtClave.getPassword());
+        String clave2 = new String(txtClave2.getPassword());
+
+        if (txtIdentificacion.getText().isEmpty() || txtNombreUsuario.getText().isEmpty()
+                || txtEmail.getText().isEmpty() || txtClave.getPassword().length == 0
+                || txtClave2.getPassword().length == 0) {
+JOptionPane.showMessageDialog(this, "Los campos son obligatorios", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+        }
+       
+        
+      if (!clave1.equals(clave2)) {
+            JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        Usuario nuevoUsuario = new Usuario(
+               Integer.parseInt(txtIdentificacion.getText()) ,
+                txtNombreUsuario.getText(),
+                txtEmail.getText(),
+                clave1,
+             
+                "Cliente",
+                "Activo"
+        );
+
+        UsuarioFileManager.saveUser(nuevoUsuario);
+        JOptionPane.showMessageDialog(this, "Usuario registrado exitosamente");
+
+        Login frmLogin = new Login();
+        this.setVisible(false);
+        frmLogin.setVisible(true);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistroActionPerformed
 
     /**
      * @param args the command line arguments

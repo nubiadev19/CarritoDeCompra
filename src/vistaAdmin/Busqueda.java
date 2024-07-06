@@ -6,19 +6,19 @@
 package vistaAdmin;
 
 import ListaDobles.ListaProductos;
-import ListaDobles.Nodo;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Event;
 import java.awt.Image;
 import java.util.ArrayList;
-import javafx.scene.layout.Border;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.border.TitledBorder;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import modelo.Producto;
 
 /**
  *
@@ -30,15 +30,17 @@ public class Busqueda extends javax.swing.JFrame {
      * Creates new form Busqueda
      */
     
-    ArrayList Productos;
-    Nodo Obj;
+    Producto Obj;
+    Edit_Add Dato;
     ListaProductos a;
     int indice;
     int x,y;
      modelo.Producto producto1,producto2;
+        DefaultTableModel modelo;
     
     public Busqueda() {
         initComponents();
+        
         this.setTitle("Busqueda");
         this.setSize(900, 800);
         this.setLocationRelativeTo(null);
@@ -46,21 +48,25 @@ public class Busqueda extends javax.swing.JFrame {
         SetImageLabel(JLogo,"src/Imagenes/Logo sin fondo 2.png");
         SetImageLabel(JCamino,"src/Imagenes/Camino Patitas.png");
         
-        Productos = new ArrayList();
         indice = 0;
         a = new ListaProductos();
         
-        producto1 = new modelo.Producto(1111,"Cadena",20,"Accesorio","Cachorro","perro","plateado",
-                                          "mediano","Gratis",10000,"Masticable","Credito",
-                                           "src/Imagenes/huellita gato 1.png","Cadena para el cuello de su canino");
-        producto2 = new modelo.Producto(2222,"Pollo De Hule",30,"Juguete","Adulto","perro","Amarrillo",
-                                          "Grande","Gratis",7500,"Masticable","Efectivo",
-                                           "src/Imagenes/huellita gato 2.png","Juguete masticable");
-        a.setAddInicio(producto1);
-        a.setAddInicio(producto2);
-       
+        modelo = new DefaultTableModel();
+        modelo.addColumn("Codigo");
+        modelo.addColumn("Imagen");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Precio");
+        modelo.addColumn("Descripcion");
+        
     }
      
+    public void NuevaTabla(){
+    modelo = new DefaultTableModel();
+    
+    }
+    
+    
+    
     private void SetImageLabel(JLabel labelName, String root){
         ImageIcon image = new ImageIcon(root);
         Icon icono = new ImageIcon(
@@ -69,53 +75,6 @@ public class Busqueda extends javax.swing.JFrame {
         this.repaint();
 
 }
-    
-    public String StrToHtml(String texto){
-     return "<Html><p>"+ texto +"</p></Html>";
-    }
-    
-    private void SetLista(){
-       JPanel Base = new JPanel();
-       JPanel Desc = new JPanel();
-       JPanel Imag = new JPanel();
-       JLabel Codigo = new JLabel(""+a.Recorrer(indice).getProduto().getCodigo());
-       JLabel Nombre = new JLabel(""+a.Recorrer(indice).getProduto().getNombre());
-       JLabel Precio = new JLabel(""+a.Recorrer(indice).getProduto().getPrecio());
-       JLabel TipoE = new JLabel(""+a.Recorrer(indice).getProduto().getTipoEnvio());
-       JLabel Descp = new JLabel(StrToHtml(a.Recorrer(indice).getProduto().getDescripcion()));
-       JLabel Img = new JLabel("");
-       JButton ver = new JButton("Ver mas...");
-       
-       Img.setSize(100, 130);
-       Descp.setSize(210, 130);
-       Imag.setBackground(new Color(197,222,244));
-       Base.setBackground(new Color(140,189,234));
-       Desc.setBackground(new Color(197,222,244));
-       ver.setBackground(new Color(197,222,244));
-       
-       SetImageLabel(Img, a.Recorrer(indice).getProduto().getImagen());
-       
-       Base.add(Imag);
-       Base.add(Codigo);
-       Base.add(Nombre);
-       Base.add(Precio);
-       Base.add(TipoE);
-       Base.add(ver);
-       Base.add(Desc);
-        
-       Desc.add(Descp);
-       Imag.add(Img);
-       
-       Base.setPreferredSize(new Dimension(400, 150));
-       Imag.setPreferredSize(new Dimension(130, 130));
-       Desc.setPreferredSize(new Dimension(220, 140));
-       
-       JPANELPRINCIPAL.add(Base);
-       Productos.add(Base);
-       indice ++;
-       JPANELPRINCIPAL.updateUI();
-    }
-    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -148,7 +107,7 @@ public class Busqueda extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jBOferta = new javax.swing.JButton();
-        jTextField5 = new javax.swing.JTextField();
+        Busqueda = new javax.swing.JTextField();
         jBPerfil = new javax.swing.JButton();
         jBHistorial = new javax.swing.JButton();
         jBVender = new javax.swing.JButton();
@@ -163,8 +122,8 @@ public class Busqueda extends javax.swing.JFrame {
         jPanel13 = new javax.swing.JPanel();
         jBAñadir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        JScrollPanel = new javax.swing.JScrollPane();
-        JPANELPRINCIPAL = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -193,7 +152,7 @@ public class Busqueda extends javax.swing.JFrame {
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Color", "Rojo", "Azul", "Amarrillo", "Verde", "Morado", "Naranja" }));
 
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo De Producto", "Masticable", "Fuerza", " " }));
+        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo De Producto", "Masticable", "Estirable", "Con Sonido" }));
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -241,7 +200,7 @@ public class Busqueda extends javax.swing.JFrame {
 
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Precio", "Menor a 10.000", "Menor a 50.000", "Menor a 100.000", "Mayor a 10.000", "Mayor a 50.000", "Mayor a 100.000" }));
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo Envio", "Envio Gratis", "Envio Expres", " " }));
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo Envio", "Envio Gratis", "Envio Expres" }));
 
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Medio De Pago", "Efectivo", "Credito", "A Cuotas", " " }));
 
@@ -290,7 +249,7 @@ public class Busqueda extends javax.swing.JFrame {
             }
         });
 
-        jTextField5.setBackground(new java.awt.Color(255, 232, 163));
+        Busqueda.setBackground(new java.awt.Color(255, 232, 163));
 
         jBPerfil.setBackground(new java.awt.Color(255, 232, 163));
         jBPerfil.setText("Perfil");
@@ -390,7 +349,7 @@ public class Busqueda extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(JLogo)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jCbCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -425,7 +384,7 @@ public class Busqueda extends javax.swing.JFrame {
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jBBusqueda)
                                     .addComponent(jBPerfil)))
                             .addComponent(JLogo))
@@ -485,21 +444,25 @@ public class Busqueda extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        JScrollPanel.setBackground(new java.awt.Color(255, 255, 255));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        JPANELPRINCIPAL.setBackground(new java.awt.Color(255, 255, 255));
-        JPANELPRINCIPAL.setLayout(new java.awt.GridLayout(0, 1, 10, 5));
-        JScrollPanel.setViewportView(JPANELPRINCIPAL);
+            },
+            new String [] {
+                "Codigo", "Imagen", "Nombre", "Precio", "Categoria"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+            .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE)
-                    .addComponent(JScrollPanel))
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -507,9 +470,9 @@ public class Busqueda extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(JScrollPanel)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -575,13 +538,15 @@ public class Busqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_jBPerfilActionPerformed
 
     private void jBHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBHistorialActionPerformed
-       // :3
+       Histo_Vend frmHisto_Vend = new  Histo_Vend();
+        this.setVisible(false);
+        frmHisto_Vend.setVisible(true);
     }//GEN-LAST:event_jBHistorialActionPerformed
 
     private void jBVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVenderActionPerformed
-        Editar_Añadir frmEditar_Añadir = new Editar_Añadir();
+        Edit_Add frmEdit_Add = new Edit_Add();
         this.setVisible(false);
-        frmEditar_Añadir.setVisible(true);
+        frmEdit_Add.setVisible(true);
     }//GEN-LAST:event_jBVenderActionPerformed
 
     private void jBRevisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRevisarActionPerformed
@@ -597,13 +562,19 @@ public class Busqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_jBStonksActionPerformed
 
     private void jBVendidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVendidosActionPerformed
-        Hist_Vend frmHist_Vend = new  Hist_Vend();
+        Histo_Vend frmHisto_Vend = new  Histo_Vend();
         this.setVisible(false);
-        frmHist_Vend.setVisible(true);
+        frmHisto_Vend.setVisible(true);
     }//GEN-LAST:event_jBVendidosActionPerformed
 
     private void jBBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBusquedaActionPerformed
-        // :3
+      String Dato = Busqueda.getText();
+      Obj = a.getBuscarNombre(Dato);
+      
+      if(Obj != null){
+      JOptionPane.showMessageDialog(null, "Se Busco el nombre \n"+ Dato);
+      }else {
+      JOptionPane.showMessageDialog(null, "No se encontro nada \n");}
     }//GEN-LAST:event_jBBusquedaActionPerformed
 
     private void jCbCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbCategoriasActionPerformed
@@ -635,11 +606,12 @@ public class Busqueda extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
       
-       SetLista();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jBAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAñadirActionPerformed
-        SetLista();
+       Edit_Add frmEdit_Add = new Edit_Add();
+      this.setVisible(false);
+       frmEdit_Add.setVisible(true);
     }//GEN-LAST:event_jBAñadirActionPerformed
 
     /**
@@ -678,11 +650,10 @@ public class Busqueda extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Busqueda;
     private javax.swing.JButton JBAyuda;
     private javax.swing.JLabel JCamino;
     private javax.swing.JLabel JLogo;
-    private javax.swing.JPanel JPANELPRINCIPAL;
-    private javax.swing.JScrollPane JScrollPanel;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
@@ -716,14 +687,9 @@ public class Busqueda extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
-
-    private void addMouseEnter(JButton ver) {
-       Producto frmProducto = new Producto();
-        this.setVisible(false);
-        frmProducto.setVisible(true);
-    }
 
     
 }

@@ -4,11 +4,13 @@
  */
 package modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author LENOVO 14ALC6
  */
-public class Producto {
+public class Producto implements Serializable{
     int codigo;
     String nombre;
     int cantidad;
@@ -23,8 +25,10 @@ public class Producto {
     String medioPago;
     String Imagen;
     String Descripcion;
+    int Comprados;
+    Producto next, previous;
 
-    public Producto(int codigo, String nombre, int cantidad, String categoria, String edad, String animal, String color, String tamaño, String tipoEnvio, double precio, String tipoProducto, String medioPago, String Imagen, String Descripcion) {
+    public Producto(int codigo, String nombre, int cantidad, String categoria, String edad, String animal, String color, String tamaño, String tipoEnvio, double precio, String tipoProducto, String medioPago, String Imagen, String Descripcion, int Comprados) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.cantidad = cantidad;
@@ -39,6 +43,9 @@ public class Producto {
         this.medioPago = medioPago;
         this.Imagen = Imagen;
         this.Descripcion = Descripcion;
+        this.Comprados = Comprados;
+        this.next = null;
+        this.previous = null;
     }
 
     public int getCodigo() {
@@ -153,6 +160,31 @@ public class Producto {
         this.Descripcion = Descripcion;
     }
 
+    public int getComprados() {
+        return Comprados;
+    }
+
+    public void setComprados(int Comprados) {
+        this.Comprados = Comprados;
+    }
+
+    public Producto getNext() {
+        return next;
+    }
+
+    public void setNext(Producto next) {
+        this.next = next;
+    }
+
+    public Producto getPrevious() {
+        return previous;
+    }
+
+    public void setPrevious(Producto previous) {
+        this.previous = previous;
+    }
     
+   
+
     
 }

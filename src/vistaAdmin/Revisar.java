@@ -336,16 +336,11 @@ int x,y;
 
         jLabel12.setText("Piso(Departamento) Del Cliente");
 
-        jTextField9.setText("jTextField9");
-
         jLabel13.setText("Telefono DE Contacto Del Cliente");
-
-        jTextField10.setText("jTextField10");
 
         jLabel14.setText("Referencias Adicionales De La Direccion Del Cliente");
 
-        jTextField11.setText("jTextField11");
-
+        jButton1.setBackground(new java.awt.Color(255, 166, 41));
         jButton1.setText("Revisar");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -425,10 +420,11 @@ int x,y;
                     .addComponent(jLabel10)
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -502,15 +498,15 @@ int x,y;
     }//GEN-LAST:event_jBPerfilActionPerformed
 
     private void jBHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBHistorialActionPerformed
-        Hist_Vend frmHist_Vend = new  Hist_Vend();
+        Histo_Vend frmHisto_Vend = new  Histo_Vend();
         this.setVisible(false);
-        frmHist_Vend.setVisible(true);
+        frmHisto_Vend.setVisible(true);
     }//GEN-LAST:event_jBHistorialActionPerformed
 
     private void jBVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVenderActionPerformed
-        Editar_Añadir frmEditar_Añadir = new Editar_Añadir();
+       Edit_Add frmEdit_Add = new Edit_Add();
         this.setVisible(false);
-        frmEditar_Añadir.setVisible(true);
+        frmEdit_Add.setVisible(true);
     }//GEN-LAST:event_jBVenderActionPerformed
 
     private void jBRevisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRevisarActionPerformed
@@ -524,9 +520,9 @@ int x,y;
     }//GEN-LAST:event_jBStonksActionPerformed
 
     private void jBVendidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVendidosActionPerformed
-        Hist_Vend frmHist_Vend = new  Hist_Vend();
+        Histo_Vend frmHisto_Vend = new  Histo_Vend();
         this.setVisible(false);
-        frmHist_Vend.setVisible(true);
+        frmHisto_Vend.setVisible(true);
     }//GEN-LAST:event_jBVendidosActionPerformed
 
     private void jBBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBusquedaActionPerformed
