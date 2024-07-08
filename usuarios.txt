@@ -7,3 +7,12 @@ identificacion=0, nombreUsuario=null, email=null, clave=null, rol=null, estado=n
 identificacion=0, nombreUsuario=null, email=null, clave=null, rol=null, estado=null
 identificacion=111, nombreUsuario=2, email=mara, clave=12, rol=Cliente, estado=Activo
 identificacion=0, nombreUsuario=null, email=null, clave=null, rol=null, estado=null
+identificacion=0, nombreUsuario=null, email=null, clave=null, rol=null, estado=null
+identificacion=0, nombreUsuario=null, email=null, clave=null, rol=null, estado=null
+identificacion=0, nombreUsuario=null, email=null, clave=null, rol=null, estado=null
+identificacion=112, nombreUsuario=mara, email=mara.@gmail.vom, clave=123456, rol=Cliente, estado=Activo
+identificacion=0, nombreUsuario=null, email=null, clave=null, rol=null, estado=null
+identificacion=0, nombreUsuario=null, email=null, clave=null, rol=null, estado=null
+identificacion=0, nombreUsuario=null, email=null, clave=null, rol=null, estado=null
+identificacion=0, nombreUsuario=null, email=null, clave=null, rol=null, estado=null
+identificacion=0, nombreUsuario=null, email=null, clave=null, rol=null, estado=null

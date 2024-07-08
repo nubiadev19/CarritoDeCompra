@@ -1,0 +1,3 @@
+1&collar&5&Accesorios&Cachorro&Perro&Rojo&Mediano&Envio Gratis&20000.0&Masticable&vacio&src/Informacion/ImagenesProductos/1.png&No hay detalles&0
+2&hueso&6&Juguetes&Cachorro&Perro&Azul&Pequeño&Envio Expres&30000.0&Masticable&vacio&src/Informacion/ImagenesProductos/2.png&juquete para que tu mascota pase un rato feliz&0
+3&plato&4&Comodidad&Adulto&Perro&Verde&Mediano&Envio Gratis&15000.0&Masticable&vacio&src/Informacion/ImagenesProductos/3.png&No hay detalles&0

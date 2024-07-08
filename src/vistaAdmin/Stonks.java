@@ -7,6 +7,9 @@ package vistaAdmin;
 
 import java.awt.Color;
 import java.awt.Image;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -555,7 +558,12 @@ int x,y;
     }//GEN-LAST:event_jBVendidosActionPerformed
 
     private void jBBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBusquedaActionPerformed
-        Busqueda frmBusqueda = new Busqueda();
+        Busqueda frmBusqueda = null;
+    try {
+        frmBusqueda = new Busqueda();
+    } catch (IOException ex) {
+        Logger.getLogger(Stonks.class.getName()).log(Level.SEVERE, null, ex);
+    }
         this.setVisible(false);
         frmBusqueda.setVisible(true);
     }//GEN-LAST:event_jBBusquedaActionPerformed

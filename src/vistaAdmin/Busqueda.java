@@ -6,10 +6,23 @@
 package vistaAdmin;
 
 import ListaDobles.ListaProductos;
+import Productos.LeerEscribirArchivo;
+import Productos.ListaEnlazada;
+import Productos.Nodo;
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.List;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.EventObject;
+import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.AbstractCellEditor;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,6 +31,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableCellRenderer;
 import modelo.Producto;
 
 /**
@@ -26,56 +41,82 @@ import modelo.Producto;
  */
 public class Busqueda extends javax.swing.JFrame {
 
+    LeerEscribirArchivo arch = new LeerEscribirArchivo();
+    ListaEnlazada lis = new ListaEnlazada();
+    private static final String DATA_FILE = "src/Informacion/Productos.txt";
+    private static final String IMAGE_DIRECTORY = "src/Informacion/ImagenesProductos/";
     /**
      * Creates new form Busqueda
      */
-    
     Producto Obj;
     Edit_Add Dato;
     ListaProductos a;
     int indice;
-    int x,y;
-     modelo.Producto producto1,producto2;
-        DefaultTableModel modelo;
-    
-    public Busqueda() {
+    int x, y;
+    modelo.Producto producto1, producto2;
+    DefaultTableModel modelo;
+
+    public Busqueda() throws IOException {
         initComponents();
-        
+
         this.setTitle("Busqueda");
         this.setSize(900, 800);
         this.setLocationRelativeTo(null);
-        this.setBackground(new Color(255,210,51));
-        SetImageLabel(JLogo,"src/Imagenes/Logo sin fondo 2.png");
-        SetImageLabel(JCamino,"src/Imagenes/Camino Patitas.png");
-        
+        this.setBackground(new Color(255, 210, 51));
+        SetImageLabel(JLogo, "src/Imagenes/Logo sin fondo 2.png");
+        SetImageLabel(JCamino, "src/Imagenes/Camino Patitas.png");
         indice = 0;
         a = new ListaProductos();
-        
         modelo = new DefaultTableModel();
         modelo.addColumn("Codigo");
         modelo.addColumn("Imagen");
         modelo.addColumn("Nombre");
         modelo.addColumn("Precio");
         modelo.addColumn("Descripcion");
-        
+        cargarInformacion();
     }
-     
-    public void NuevaTabla(){
-    modelo = new DefaultTableModel();
-    
+
+    public void NuevaTabla() {
+        modelo = new DefaultTableModel();
+
     }
+
     
-    
-    
-    private void SetImageLabel(JLabel labelName, String root){
+
+    private void SetImageLabel(JLabel labelName, String root) {
         ImageIcon image = new ImageIcon(root);
         Icon icono = new ImageIcon(
-                                   image.getImage().getScaledInstance(labelName.getWidth(),labelName.getHeight(), Image.SCALE_DEFAULT));
+                image.getImage().getScaledInstance(labelName.getWidth(), labelName.getHeight(), Image.SCALE_DEFAULT));
         labelName.setIcon(icono);
         this.repaint();
 
-}
-    
+    }
+
+    private void cargarInformacion() throws IOException {
+        // Suponiendo que DATA_FILE es la ruta del archivo de datos
+
+        lis.recuperarArchivo(DATA_FILE);
+        LinkedList<Nodo> primerosCinco = lis.obtenerPrimerosCincoNodos();
+
+        // Crear un modelo de tabla con columnas para los datos del producto
+        DefaultTableModel model = new DefaultTableModel(new Object[]{"Código", "Nombre", "Precio", "Cantidad", "Descripción"}, 0);
+        tbProductos.setModel(model);
+
+        // Recorrer la lista de nodos y llenar la tabla
+        for (Nodo nodo : primerosCinco) {
+
+            model.addRow(new Object[]{
+                nodo.getCodigo(),
+                nodo.getNombre(),
+                nodo.getPrecio(),
+                nodo.getCantidad(),
+                nodo.getDescripcion()
+            });
+        }
+    }
+
+     
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -123,7 +164,7 @@ public class Busqueda extends javax.swing.JFrame {
         jBAñadir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbProductos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -239,7 +280,7 @@ public class Busqueda extends javax.swing.JFrame {
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 166, 41));
-        jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jBOferta.setBackground(new java.awt.Color(255, 232, 163));
         jBOferta.setText("Oferta");
@@ -324,7 +365,7 @@ public class Busqueda extends javax.swing.JFrame {
         });
 
         JLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo sin fondo 2.png"))); // NOI18N
-        JLogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JLogo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         JLogo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 JLogoMouseDragged(evt);
@@ -429,7 +470,7 @@ public class Busqueda extends javax.swing.JFrame {
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBAñadir)
                 .addContainerGap())
@@ -437,22 +478,22 @@ public class Busqueda extends javax.swing.JFrame {
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(11, Short.MAX_VALUE)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jBAñadir))
                 .addContainerGap())
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Codigo", "Imagen", "Nombre", "Precio", "Categoria"
+                "Codigo", "Imagen", "Nombre", "Precio", "Categoria", "accion"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbProductos);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -462,7 +503,7 @@ public class Busqueda extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -526,7 +567,7 @@ public class Busqueda extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBOfertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBOfertaActionPerformed
-        Ofert_Recomd_Rec frmOfert_Recomd_Rec = new  Ofert_Recomd_Rec();
+        Ofert_Recomd_Rec frmOfert_Recomd_Rec = new Ofert_Recomd_Rec();
         this.setVisible(false);
         frmOfert_Recomd_Rec.setVisible(true);
     }//GEN-LAST:event_jBOfertaActionPerformed
@@ -538,7 +579,7 @@ public class Busqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_jBPerfilActionPerformed
 
     private void jBHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBHistorialActionPerformed
-       Histo_Vend frmHisto_Vend = new  Histo_Vend();
+        Histo_Vend frmHisto_Vend = new Histo_Vend();
         this.setVisible(false);
         frmHisto_Vend.setVisible(true);
     }//GEN-LAST:event_jBHistorialActionPerformed
@@ -562,19 +603,20 @@ public class Busqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_jBStonksActionPerformed
 
     private void jBVendidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVendidosActionPerformed
-        Histo_Vend frmHisto_Vend = new  Histo_Vend();
+        Histo_Vend frmHisto_Vend = new Histo_Vend();
         this.setVisible(false);
         frmHisto_Vend.setVisible(true);
     }//GEN-LAST:event_jBVendidosActionPerformed
 
     private void jBBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBusquedaActionPerformed
-      String Dato = Busqueda.getText();
-      Obj = a.getBuscarNombre(Dato);
-      
-      if(Obj != null){
-      JOptionPane.showMessageDialog(null, "Se Busco el nombre \n"+ Dato);
-      }else {
-      JOptionPane.showMessageDialog(null, "No se encontro nada \n");}
+        String Dato = Busqueda.getText();
+        Obj = a.getBuscarNombre(Dato);
+
+        if (Obj != null) {
+            JOptionPane.showMessageDialog(null, "Se Busco el nombre \n" + Dato);
+        } else {
+            JOptionPane.showMessageDialog(null, "No se encontro nada \n");
+        }
     }//GEN-LAST:event_jBBusquedaActionPerformed
 
     private void jCbCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbCategoriasActionPerformed
@@ -590,7 +632,7 @@ public class Busqueda extends javax.swing.JFrame {
     private void JLogoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLogoMouseDragged
         int X = evt.getXOnScreen();
         int Y = evt.getYOnScreen();
-        this.setLocation(X-x,Y-y);
+        this.setLocation(X - x, Y - y);
     }//GEN-LAST:event_JLogoMouseDragged
 
     private void JLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLogoMouseClicked
@@ -600,18 +642,21 @@ public class Busqueda extends javax.swing.JFrame {
     }//GEN-LAST:event_JLogoMouseClicked
 
     private void JLogoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLogoMousePressed
-        x=evt.getX();
-        y=evt.getY();
+        x = evt.getX();
+        y = evt.getY();
     }//GEN-LAST:event_JLogoMousePressed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jBAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAñadirActionPerformed
-       Edit_Add frmEdit_Add = new Edit_Add();
-      this.setVisible(false);
-       frmEdit_Add.setVisible(true);
+        RegistrarProducto registro = new RegistrarProducto();
+        boolean respuesta = registro.obtenerValor();
+        if (respuesta == true) {
+        } else {
+            System.out.println("no hago nada");
+        }
     }//GEN-LAST:event_jBAñadirActionPerformed
 
     /**
@@ -644,7 +689,11 @@ public class Busqueda extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Busqueda().setVisible(true);
+                try {
+                    new Busqueda().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Busqueda.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -688,8 +737,7 @@ public class Busqueda extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbProductos;
     // End of variables declaration//GEN-END:variables
 
-    
 }
